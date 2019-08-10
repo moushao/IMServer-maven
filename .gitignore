@@ -29,8 +29,8 @@ build/
 ### VS Code ###
 .vscode/
 
-mvnm
-mvnm.cmd
+mvnw
+mvnw.cmd
 out/
 pom.xml.tag
 pom.xml.releaseBackup
