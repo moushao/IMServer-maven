@@ -16,9 +16,6 @@ import main.com.im.netty.bean.MessageContextModel;
 import main.com.im.netty.entity.MessageFactory;
 
 class ServerHandler extends ChannelInboundHandlerAdapter {
-
-    private static final String TAG = ServerHandler.class.getSimpleName();
-
     public ServerHandler(IMServer imServer) {
 
     }
@@ -86,7 +83,7 @@ class ServerHandler extends ChannelInboundHandlerAdapter {
         ctx.channel().writeAndFlush(Unpooled.copiedBuffer(data, CharsetUtil.UTF_8)).addListener(new ChannelFutureListener() {
             @Override
             public void operationComplete(ChannelFuture channelFuture) throws Exception {
-                System.out.println(msg.LoginBody.AccountName + "登陆" + (channelFuture.isSuccess() ? "成功" : "失败"));
+                System.out.println(msg.LoginBody.AccountName + ":登陆" + (channelFuture.isSuccess() ? "成功" : "失败"));
             }
         });
     }

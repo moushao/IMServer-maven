@@ -23,7 +23,46 @@ public class ChannelContainer {
         if (channel == null) {
             return;
         }
-        CHANNELS.put(channel.getUserId(), channel);
+
+        checkIsNewEquipment(channel);
+        CHANNELS.put(channel.getAccount(), channel);
+    }
+
+    private void checkIsNewEquipment(NettyChannel channel) {
+        //如果包含,就说明之前登陆过
+        if (CHANNELS.containsKey(channel.getAccount())) {
+            NettyChannel beforeChannel = CHANNELS.get(channel.getAccount());
+            //判断当前登陆,是否和之前登陆的是否为同端同一设备
+            if (channel.getUniqChannelID().equals(beforeChannel.getUniqChannelID())) {
+                //TODO 如果当前登陆设备,与之前不是同端同一个登陆设备,则提示"被踢下线"
+            }
+            destroyNettyChannel(beforeChannel);
+        }
+
+    }
+
+    /**
+     * <br/> 方法名称: destroyNettyChannel
+     * <br/> 方法详述:通过id删除NettyChannel和Channel
+     * <br/> 参数:
+     * <br/> 返回值:
+     * <br/> 异常抛出 Exception:
+     * <br/> 异常抛出 NullPointerException:
+     */
+    private void destroyNettyChannel(NettyChannel channel) {
+        NettyChannel ch = CHANNELS.remove(channel.getAccount());
+        Channel channel1 = ch.getChannel();
+        try {
+            channel1.disconnect();
+            channel1.close();
+            channel1.eventLoop().shutdownGracefully();
+        } catch (Exception e) {
+
+        } finally {
+            channel1 = null;
+            ch = null;
+        }
+        CHANNELS.remove(channel.getAccount());
     }
 
     public NettyChannel removeChannelIfConnectNoActive(Channel channel) {
@@ -49,7 +88,7 @@ public class ChannelContainer {
 
     public String getUserIdByChannel(String channelId) {
         if (CHANNELS.containsKey(channelId)) {
-            return CHANNELS.get(channelId).getUserId();
+            return CHANNELS.get(channelId).getAccount();
         }
         return null;
     }

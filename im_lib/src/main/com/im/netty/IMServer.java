@@ -2,6 +2,7 @@ package main.com.im.netty;
 
 
 import io.netty.bootstrap.ServerBootstrap;
+import io.netty.channel.Channel;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelFutureListener;
 import io.netty.channel.ChannelOption;
@@ -12,8 +13,12 @@ import main.com.im.netty.envent.ServerClient;
 
 public class IMServer implements ServerClient {
     private static volatile IMServer instance;
-
+    //boss线程监听端口，worker线程负责数据读写
+    EventLoopGroup boss, worker;
     private ServerBootstrap bootstrap;
+    private Channel channel;
+    //是否让主线程等待,默认为false
+    private boolean isWait;
 
     public IMServer() {
 
@@ -30,14 +35,18 @@ public class IMServer implements ServerClient {
         return instance;
     }
 
+    public IMServer isWait(boolean wait) {
+        isWait = wait;
+        return instance;
+    }
+
     @Override
     public void init() {
-        //boss线程监听端口，worker线程负责数据读写
-        EventLoopGroup boss = new NioEventLoopGroup();
-        EventLoopGroup worker = new NioEventLoopGroup();
         try {
+            boss = new NioEventLoopGroup();
+            worker = new NioEventLoopGroup();
             //辅助启动类
-            ServerBootstrap bootstrap = new ServerBootstrap();
+            bootstrap = new ServerBootstrap();
             //设置线程池
             bootstrap.group(boss, worker);
             //设置socket工厂
@@ -51,29 +60,56 @@ public class IMServer implements ServerClient {
             bootstrap.childOption(ChannelOption.SO_KEEPALIVE, true);
             //关闭延迟发送
             bootstrap.childOption(ChannelOption.TCP_NODELAY, true);
-
-            //绑定端口
-            ChannelFuture future = bootstrap.bind(9090).sync();
             System.out.println("server start ...... ");
-            //等待服务端监听端口关闭
-            future.channel().closeFuture().sync().addListener(new ChannelFutureListener() {
+            //绑定需要监听的端口
+            bootstrap.bind(9090);
+            ChannelFuture future = bootstrap.bind(9090).addListener(new ChannelFutureListener() {
                 @Override
                 public void operationComplete(ChannelFuture channelFuture) throws Exception {
-                    if (channelFuture.isSuccess())
+                    if (channelFuture.isSuccess()) {
+                        channel = channelFuture.channel();
                         System.out.println("服务已启动,成功监听端口");
+                        // close();
+                    }
                 }
             });
-        } catch (InterruptedException e) {
+            if (isWait) {
+                future.sync();
+                future.channel().closeFuture().sync(); //取消端口监听,退出子线程,回到主线程,使用sync表示主线程等待}
+            }
+        } catch (Exception e) {
             e.printStackTrace();
+            close();
         } finally {
-            //优雅退出，释放线程池资源
-            boss.shutdownGracefully();
-            worker.shutdownGracefully();
+            if (isWait)
+                shutdownNioEvenLootGroup();
         }
+    }
+
+    private void shutdownNioEvenLootGroup() {
+        //优雅退出，释放线程池资源
+        boss.shutdownGracefully();
+        worker.shutdownGracefully();
+        boss = null;
+        worker = null;
     }
 
     @Override
     public void close() {
-
+        try {
+            if (bootstrap != null) {
+                if (channel != null) {
+                    channel.closeFuture();
+                    channel.pipeline().remove(ServerHandler.class.getName());
+                }
+                shutdownNioEvenLootGroup();
+                bootstrap.group().shutdownGracefully();
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        } finally {
+            channel = null;
+            bootstrap = null;
+        }
     }
 }
