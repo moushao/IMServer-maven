@@ -69,20 +69,18 @@ public class IMServer implements ServerClient {
                     if (channelFuture.isSuccess()) {
                         channel = channelFuture.channel();
                         System.out.println("服务已启动,成功监听端口");
-                        // close();
                     }
                 }
             });
-            if (isWait) {
-                future.sync();
-                future.channel().closeFuture().sync(); //取消端口监听,退出子线程,回到主线程,使用sync表示主线程等待}
-            }
+            if (isWait)//是否开启主线程等待
+                //取消端口监听,退出子线程,回到主线程,使用sync表示主线程等待
+                future.sync().channel().closeFuture().sync();
         } catch (Exception e) {
             e.printStackTrace();
             close();
         } finally {
             if (isWait)
-                shutdownNioEvenLootGroup();
+                close();
         }
     }
 

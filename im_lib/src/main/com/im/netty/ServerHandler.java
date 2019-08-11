@@ -80,7 +80,8 @@ class ServerHandler extends ChannelInboundHandlerAdapter {
         imMessage.Flag = true;
         imMessage.Msg = "登录成功";
         final String data = new Gson().toJson(imMessage);
-        ctx.channel().writeAndFlush(Unpooled.copiedBuffer(data, CharsetUtil.UTF_8)).addListener(new ChannelFutureListener() {
+        ctx.channel().writeAndFlush(Unpooled.copiedBuffer(data, CharsetUtil.UTF_8)
+        ).addListener(new ChannelFutureListener() {
             @Override
             public void operationComplete(ChannelFuture channelFuture) throws Exception {
                 System.out.println(msg.LoginBody.AccountName + ":登陆" + (channelFuture.isSuccess() ? "成功" : "失败"));

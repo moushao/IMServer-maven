@@ -12,7 +12,7 @@ public class ImServerApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(ImServerApplication.class, args);
-        IMServer.getInstance().isWait(true).init();
+        IMServer.getInstance().init();
         System.out.println("没到这里");
     }
 

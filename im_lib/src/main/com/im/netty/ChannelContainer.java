@@ -43,64 +43,57 @@ public class ChannelContainer {
 
     /**
      * <br/> 方法名称: destroyNettyChannel
-     * <br/> 方法详述:通过id删除NettyChannel和Channel
-     * <br/> 参数:
-     * <br/> 返回值:
-     * <br/> 异常抛出 Exception:
-     * <br/> 异常抛出 NullPointerException:
+     * <br/> 方法详述:通过账户删除NettyChannel和Channel
      */
     private void destroyNettyChannel(NettyChannel channel) {
-        NettyChannel ch = CHANNELS.remove(channel.getAccount());
-        Channel channel1 = ch.getChannel();
+        if (channel == null)
+            return;
+        NettyChannel ch;
+        Channel unUseChannel;
         try {
-            channel1.disconnect();
-            channel1.close();
-            channel1.eventLoop().shutdownGracefully();
+            ch = CHANNELS.remove(channel.getAccount());
+            unUseChannel = ch.getChannel();
+            unUseChannel.disconnect();
+            unUseChannel.close();
+            unUseChannel.eventLoop().shutdownGracefully();
         } catch (Exception e) {
-
+            e.printStackTrace();
         } finally {
-            channel1 = null;
+            unUseChannel = null;
             ch = null;
         }
-        CHANNELS.remove(channel.getAccount());
     }
 
-    public NettyChannel removeChannelIfConnectNoActive(Channel channel) {
+    /**
+     * <br/> 方法名称: removeChannelIfConnectNoActive
+     * <br/> 方法详述: 删除断开的连接
+     * <br/> 参数:channel:被断开的连接
+     */
+    public void removeChannelIfConnectNoActive(Channel channel) {
         if (channel == null) {
-            return null;
+            return;
         }
-
         String channelId = channel.id().toString();
-        return removeChannelIfConnectNoActive(channelId);
+        NettyChannel nettyChannel = getChannelByChannelID(channelId);
+        destroyNettyChannel(nettyChannel);
     }
 
-    public NettyChannel removeChannelIfConnectNoActive(String channelId) {
-        if (CHANNELS.containsKey(channelId) && !CHANNELS.get(channelId).isActive()) {
-            return CHANNELS.remove(channelId);
-        }
-
-        return null;
-    }
-
-    public String getUserIdByChannel(Channel channel) {
-        return getUserIdByChannel(channel.id().toString());
-    }
-
-    public String getUserIdByChannel(String channelId) {
-        if (CHANNELS.containsKey(channelId)) {
-            return CHANNELS.get(channelId).getAccount();
-        }
-        return null;
-    }
-
-    public NettyChannel getChannelByUserId(String userId) {
-        /*for (Map.Entry<String, NettyChannel> entry : CHANNELS.entrySet()) {
-            if (entry.getValue().getUserId().equals(userId) && entry.getValue().isActive()) {
+    public NettyChannel getChannelByChannelID(String channelId) {
+        for (Map.Entry<String, NettyChannel> entry : CHANNELS.entrySet()) {
+            if (entry.getValue().getChannelId().equals(channelId)) {
                 return entry.getValue();
             }
-        }*/
+        }
+        return null;
+    }
 
-        NettyChannel channel = CHANNELS.get(userId);
+    /**
+     * <br/> 方法名称: getChannelByAccount
+     * <br/> 方法详述: 通过账户获取Channel
+     * <br/> 参数: Account 账户名称
+     */
+    public NettyChannel getChannelByAccount(String Account) {
+        NettyChannel channel = CHANNELS.get(Account);
         if (channel != null && channel.isActive()) {
             return channel;
         }

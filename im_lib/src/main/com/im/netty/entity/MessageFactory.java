@@ -38,7 +38,7 @@ public class MessageFactory {
     private void reLayMessage(MessageContextModel msg) {
         String[] recS = getReceiveIDs(msg.MsgBody.ReceiveID);
         for (String receiveID : recS) {
-            NettyChannel ntChannel = ChannelContainer.getInstance().getChannelByUserId(receiveID);
+            NettyChannel ntChannel = ChannelContainer.getInstance().getChannelByAccount(receiveID);
             if (ntChannel == null || !ntChannel.getChannel().isActive())
                 // TODO 说明当前用户不在线,保存消息在服务器
                 return;
