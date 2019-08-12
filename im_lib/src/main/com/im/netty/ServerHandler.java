@@ -3,17 +3,13 @@ package main.com.im.netty;
 
 import com.google.gson.Gson;
 
+import java.net.InetSocketAddress;
+
 import io.netty.buffer.ByteBuf;
-import io.netty.buffer.Unpooled;
-import io.netty.channel.ChannelFuture;
-import io.netty.channel.ChannelFutureListener;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
-import io.netty.util.CharsetUtil;
 import io.netty.util.ReferenceCountUtil;
-import main.com.im.netty.bean.IMMessage;
 import main.com.im.netty.bean.MessageContextModel;
-import main.com.im.netty.entity.MessageFactory;
 
 class ServerHandler extends ChannelInboundHandlerAdapter {
     public ServerHandler(IMServer imServer) {
@@ -52,8 +48,10 @@ class ServerHandler extends ChannelInboundHandlerAdapter {
 
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object ob) throws Exception {
-        MessageContextModel msg = getJsonIMessage(ob);
-        if (msg == null)
+
+        personAuthentication(ctx, null);
+
+   /*     if (msg == null)
             return;
 
         switch (msg.Command) {
@@ -66,11 +64,11 @@ class ServerHandler extends ChannelInboundHandlerAdapter {
             default:
                 MessageFactory.getInstance().receiveMessage(msg);
                 break;
-        }
+        }*/
     }
 
     //握手认证
-    private void personAuthentication(ChannelHandlerContext ctx, final MessageContextModel msg) {
+   /* private void personAuthentication(ChannelHandlerContext ctx, final MessageContextModel msg) {
         NettyChannel ntChannel = new NettyChannel(msg.LoginBody.AccountName, ctx.channel());
         ChannelContainer.getInstance().saveChannel(ntChannel);
         IMMessage imMessage = new IMMessage();
@@ -87,10 +85,18 @@ class ServerHandler extends ChannelInboundHandlerAdapter {
                 System.out.println(msg.LoginBody.AccountName + ":登陆" + (channelFuture.isSuccess() ? "成功" : "失败"));
             }
         });
+    }*/
+    //握手认证
+    private void personAuthentication(ChannelHandlerContext ctx, final MessageContextModel msg) {
+        NettyChannel ntChannel = new NettyChannel(ctx.channel().id().toString(), ctx.channel());
+        ChannelContainer.getInstance().saveChannel(ntChannel);
+        InetSocketAddress address = (InetSocketAddress) ctx.channel().remoteAddress();
+        final String data = new Gson().toJson(address.getHostString() + ":" + address.getPort() + "登陆成功");
+        ctx.channel().writeAndFlush(data);
     }
 
 
-    public MessageContextModel getJsonIMessage(Object msg) {
+/*    public MessageContextModel getJsonIMessage(Object msg) {
         try {
             ByteBuf s = (ByteBuf) msg;
             byte[] byteArray = new byte[s.writerIndex()];
@@ -99,6 +105,21 @@ class ServerHandler extends ChannelInboundHandlerAdapter {
             ReferenceCountUtil.release(s);
             System.out.println("接收到消息" + result);
             return new Gson().fromJson(result, MessageContextModel.class);
+        } catch (Exception e) {
+            System.out.println("消息解析异常" + e.getMessage());
+            return null;
+        }
+    }*/
+
+    public String getJsonIMessage(Object msg) {
+        try {
+            ByteBuf s = (ByteBuf) msg;
+            byte[] byteArray = new byte[s.writerIndex()];
+            s.readBytes(byteArray);
+            String result = new String(byteArray, "UTF-8");
+            ReferenceCountUtil.release(s);
+            System.out.println("接收到消息" + result);
+            return result;
         } catch (Exception e) {
             System.out.println("消息解析异常" + e.getMessage());
             return null;
