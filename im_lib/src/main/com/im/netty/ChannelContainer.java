@@ -20,13 +20,27 @@ public class ChannelContainer {
     private final Map<String, NettyChannel> CHANNELS = new ConcurrentHashMap<>();
 
     public void saveChannel(NettyChannel channel) {
+        //        synchronized (CHANNELS) {
         if (channel == null) {
             return;
         }
-
         checkIsNewEquipment(channel);
         CHANNELS.put(channel.getAccount(), channel);
+        //        }
+
+        /*if (count == 1*//* || count == 51*//*) {
+            befDate = System.currentTimeMillis();
+        }*/
+        System.out.println("计数:" + count + "当前登录人数:" + CHANNELS.size());
+        count++;
+        if (count == 10000) {
+            curr = System.currentTimeMillis();
+            System.out.println("总共时间为:" + curr + "-" + befDate);
+        }
     }
+
+    private int count = 1;
+    private long befDate, curr;
 
     private void checkIsNewEquipment(NettyChannel channel) {
         //如果包含,就说明之前登陆过
@@ -55,7 +69,6 @@ public class ChannelContainer {
             unUseChannel = ch.getChannel();
             unUseChannel.disconnect();
             unUseChannel.close();
-            unUseChannel.eventLoop().shutdownGracefully();
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
@@ -76,6 +89,7 @@ public class ChannelContainer {
         String channelId = channel.id().toString();
         NettyChannel nettyChannel = getChannelByChannelID(channelId);
         destroyNettyChannel(nettyChannel);
+        System.out.println("还剩在线人数:" + CHANNELS.size());
     }
 
     public NettyChannel getChannelByChannelID(String channelId) {

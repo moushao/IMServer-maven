@@ -21,7 +21,6 @@ public class IMServer implements ServerClient {
     private boolean isWait;
 
     public IMServer() {
-
     }
 
     public static IMServer getInstance() {
@@ -55,7 +54,7 @@ public class IMServer implements ServerClient {
             bootstrap.childHandler(new ServerHandlerInitializer(this));
             //设置TCP参数
             //1.链接缓冲池的大小（ServerSocketChannel的设置）
-            bootstrap.option(ChannelOption.SO_BACKLOG, 1024);
+            bootstrap.option(ChannelOption.SO_BACKLOG, 5024);
             //维持链接的活跃，清除死链接(SocketChannel的设置)
             bootstrap.childOption(ChannelOption.SO_KEEPALIVE, true);
             //关闭延迟发送
