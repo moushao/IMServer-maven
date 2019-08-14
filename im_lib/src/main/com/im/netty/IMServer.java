@@ -9,6 +9,7 @@ import io.netty.channel.ChannelOption;
 import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
+import io.netty.util.concurrent.DefaultThreadFactory;
 import main.com.im.netty.envent.ServerClient;
 
 public class IMServer implements ServerClient {
@@ -42,8 +43,8 @@ public class IMServer implements ServerClient {
     @Override
     public void init() {
         try {
-            boss = new NioEventLoopGroup();
-            worker = new NioEventLoopGroup();
+            boss = new NioEventLoopGroup(2, new DefaultThreadFactory("server1", true));
+            worker = new NioEventLoopGroup(4, new DefaultThreadFactory("server1", true));
             //辅助启动类
             bootstrap = new ServerBootstrap();
             //设置线程池
@@ -85,8 +86,8 @@ public class IMServer implements ServerClient {
 
     private void shutdownNioEvenLootGroup() {
         //优雅退出，释放线程池资源
-        boss.shutdownGracefully();
         worker.shutdownGracefully();
+        boss.shutdownGracefully();
         boss = null;
         worker = null;
     }
