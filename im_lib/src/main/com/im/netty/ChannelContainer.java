@@ -31,12 +31,12 @@ public class ChannelContainer {
         /*if (count == 1*//* || count == 51*//*) {
             befDate = System.currentTimeMillis();
         }*/
-        System.out.println("计数:" + count + "当前登录人数:" + CHANNELS.size());
+       /* System.out.println("计数:" + count + "当前登录人数:" + CHANNELS.size());
         count++;
         if (count == 10000) {
             curr = System.currentTimeMillis();
             System.out.println("总共时间为:" + curr + "-" + befDate);
-        }
+        }*/
     }
 
     private int count = 1;
