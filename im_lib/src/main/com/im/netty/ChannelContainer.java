@@ -17,7 +17,7 @@ public class ChannelContainer {
         return INSTANCE;
     }
 
-    private final Map<String, NettyChannel> CHANNELS = new ConcurrentHashMap<>();
+    private final ConcurrentHashMap<String, NettyChannel> CHANNELS = new ConcurrentHashMap<>();
 
     public void saveChannel(NettyChannel channel) {
         //        synchronized (CHANNELS) {

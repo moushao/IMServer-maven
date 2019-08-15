@@ -72,7 +72,8 @@ class ServerHandler extends ChannelInboundHandlerAdapter {
 
     //握手认证
     private void personAuthentication(ChannelHandlerContext ctx, final MessageContextModel msg) {
-        NettyChannel ntChannel = new NettyChannel(msg.LoginBody.AccountName, ctx.channel());
+        NettyChannel ntChannel = new NettyChannel(ctx.channel().id().toString(), ctx.channel());
+        //        NettyChannel ntChannel = new NettyChannel(msg.LoginBody.AccountName, ctx.channel());
         ChannelContainer.getInstance().saveChannel(ntChannel);
         IMMessage imMessage = new IMMessage();
         imMessage.Command = 31;
@@ -85,7 +86,8 @@ class ServerHandler extends ChannelInboundHandlerAdapter {
         ).addListener(new ChannelFutureListener() {
             @Override
             public void operationComplete(ChannelFuture channelFuture) throws Exception {
-                System.out.println(msg.LoginBody.AccountName + ":登陆" + (channelFuture.isSuccess() ? "成功" : "失败"));
+                System.out.println(channelFuture.channel().id().toString() + ":登陆" + (channelFuture.isSuccess() ? 
+                        "成功" : "失败"));
             }
         });
     }
