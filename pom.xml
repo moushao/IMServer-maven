@@ -36,11 +36,11 @@
             <version>2.8.5</version>
         </dependency>
 
-        <dependency>
-            <groupId>io.netty</groupId>
-            <artifactId>netty-all</artifactId> <!-- Use 'netty-all' for 4.0 or above -->
-            <version>4.1.33.Final</version>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>io.netty</groupId>-->
+<!--            <artifactId>netty-all</artifactId> &lt;!&ndash; Use 'netty-all' for 4.0 or above &ndash;&gt;-->
+<!--            <version>4.1.33.Final</version>-->
+<!--        </dependency>-->
     </dependencies>
 
     <build>
