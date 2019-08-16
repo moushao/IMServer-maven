@@ -1,31 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="85236943-c43d-40fa-8841-36efc46936e0" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.mvn/wrapper/MavenWrapperDownloader.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/im_lib/src/main/com/im/MsgReceiveListener.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/im_lib/src/main/com/im/TcpClientHelper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/im_lib/src/main/com/im/netty/ChannelContainer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/im_lib/src/main/com/im/netty/IMServer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/im_lib/src/main/com/im/netty/NettyChannel.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/im_lib/src/main/com/im/netty/ServerHandler.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/im_lib/src/main/com/im/netty/ServerHandlerInitializer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/im_lib/src/main/com/im/netty/bean/IMMessage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/im_lib/src/main/com/im/netty/bean/IMMessageContent.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/im_lib/src/main/com/im/netty/bean/LoginBodyModel.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/im_lib/src/main/com/im/netty/bean/MessageContextModel.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/im_lib/src/main/com/im/netty/bean/MsgHeaderModel.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/im_lib/src/main/com/im/netty/entity/MessageFactory.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/im_lib/src/main/com/im/netty/envent/ServerClient.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mous/im/ImServerApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/main.iml___jb_tmp___" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/mous/im/ImServerApplicationTests.java" beforeDir="false" />
-    </list>
+    <list default="true" id="86ece4b0-2314-4aa4-a021-76269912926d" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,6 +48,7 @@
     <property name="RequestMappingsPanelWidth0" value="75" />
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="RequestMappingsPanelWidth2" value="75" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="android.project.structure.last.selected" value="SDK Location" />
     <property name="android.project.structure.proportion" value="0.15" />

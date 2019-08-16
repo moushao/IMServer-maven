@@ -5,6 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import main.java.com.mous.im.netty.IMServer;
 
+
 @SpringBootApplication
 public class WebMavenApplication {
 
