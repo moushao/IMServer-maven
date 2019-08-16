@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="85236943-c43d-40fa-8841-36efc46936e0" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mvn/wrapper/MavenWrapperDownloader.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/im_lib/src/main/com/im/MsgReceiveListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/im_lib/src/main/com/im/TcpClientHelper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/im_lib/src/main/com/im/netty/ChannelContainer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/im_lib/src/main/com/im/netty/IMServer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/im_lib/src/main/com/im/netty/NettyChannel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/im_lib/src/main/com/im/netty/ServerHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/im_lib/src/main/com/im/netty/ServerHandlerInitializer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/im_lib/src/main/com/im/netty/bean/IMMessage.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/im_lib/src/main/com/im/netty/bean/IMMessageContent.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/im_lib/src/main/com/im/netty/bean/LoginBodyModel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/im_lib/src/main/com/im/netty/bean/MessageContextModel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/im_lib/src/main/com/im/netty/bean/MsgHeaderModel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/im_lib/src/main/com/im/netty/entity/MessageFactory.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/im_lib/src/main/com/im/netty/envent/ServerClient.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mous/im/ImServerApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/main.iml___jb_tmp___" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/mous/im/ImServerApplicationTests.java" beforeDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="localRepository" value="D:\Java\apache-maven-3.6.1\repository" />
+        <option name="mavenHome" value="D:/Java/apache-maven-3.6.1" />
+        <option name="userSettingsFile" value="D:\Java\apache-maven-3.6.1\conf\settings.xml" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="1PUFFA4hgx3229fs7i9rfwdt6dK" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="Downloaded.Files.Path" value="E:\Workspace\IM\IMServer-maven\im_lib\lib" />
+    <property name="Downloaded.Files.Path.Enabled" value="false" />
+    <property name="GoToClass.includeLibraries" value="false" />
+    <property name="GoToClass.toSaveIncludeLibraries" value="false" />
+    <property name="GoToFile.includeJavaFiles" value="false" />
+    <property name="MemberChooser.copyJavadoc" value="false" />
+    <property name="MemberChooser.showClasses" value="true" />
+    <property name="MemberChooser.sorted" value="false" />
+    <property name="Repository.Attach.JavaDocs" value="false" />
+    <property name="Repository.Attach.Sources" value="false" />
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelOrder2" value="2" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="RequestMappingsPanelWidth2" value="75" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="android.project.structure.last.selected" value="SDK Location" />
+    <property name="android.project.structure.proportion" value="0.15" />
+    <property name="android.sdk.path" value="D:/Java/sdk" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="jdk.selected.JAVA_MODULE" value="IdeaJDK" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/im_lib/src/main/java/com/mous/im" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="options.lastSelected" value="com.genymobile.genymotion.ide.idea.GdmSettings" />
+    <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.splitter.main.proportions" value="0.3" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2951505" />
+    <property name="recentsLimit" value="5" />
+    <property name="settings.editor.selected.configurable" value="MavenSettings" />
+    <property name="show.migrate.to.gradle.popup" value="false" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\Workspace\IM\IMServer-maven\im_lib\src\main\java\com\mous\im" />
+      <recent name="E:\Workspace\IM\IMServer-maven\im_lib" />
+      <recent name="E:\Workspace\IM\IMServer-maven\im_lib\src\main\" />
+      <recent name="E:\Workspace\IM\IMServer-maven\im_lib\lib" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\Workspace\IM\IMServer-maven\im_lib\src\main\java" />
+      <recent name="E:\Workspace\IM\IMServer-maven\im_lib\src\main\" />
+      <recent name="E:\Workspace\IM\IMServer-maven\im_lib\src\main" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Spring Boot.WebMavenApplication">
+    <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
+      <Host>localhost</Host>
+      <Port>5050</Port>
+    </configuration>
+    <configuration default="true" type="Applet">
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <option name="TEST_OBJECT" value="class" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="WebApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="im_server" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.mous.im.ImServerApplication" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="WebMavenApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="web_maven" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.mous.web.WebMavenApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType">
+      <module name="" />
+      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
+      <option name="PROGRAM_PARAMETERS" />
+      <predefined_log_file enabled="true" id="idea.log" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Spring Boot.WebApplication" />
+      <item itemvalue="Spring Boot.WebMavenApplication" />
+    </list>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration>C:\Users\MouTao\AppData\Roaming\Subversion</configuration>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="85236943-c43d-40fa-8841-36efc46936e0" name="Default" comment="" />
+      <created>1565857659427</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1565857659427</updated>
+      <workItem from="1565857663497" duration="3894000" />
+      <workItem from="1565861846678" duration="3305000" />
+      <workItem from="1565865223246" duration="2423000" />
+      <workItem from="1565917455921" duration="804000" />
+      <workItem from="1565918849876" duration="72000" />
+      <workItem from="1565920670655" duration="838000" />
+      <workItem from="1565921539375" duration="1682000" />
+      <workItem from="1565923313730" duration="2837000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

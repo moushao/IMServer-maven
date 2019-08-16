@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="netty-tcp-4.1.33-1.0">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/im_lib/libs/netty-tcp-4.1.33-1.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
